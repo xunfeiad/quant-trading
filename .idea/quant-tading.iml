@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="EMPTY_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/crates/quant-backtest/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/quant-config/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/quant-core/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/quant-exchange/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/quant-marketdata/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/quant-metrics/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/quant-order/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/quant-portfolio/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/quant-risk/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/quant-schema/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/quant-storage/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/crates/quant-strategy/src" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

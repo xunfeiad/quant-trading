@@ -4,3 +4,20 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+quant-schema.path ="../quant-schema"
+quant-config.path = "../quant-config"
+hmac ="0.12"
+sha2 = "0.10"
+base64 = "0.22"
+chrono.workspace = true
+serde.workspace = true
+thiserror.workspace = true
+serde_json.workspace = true
+reqwest.workspace = true
+async-trait.workspace = true
+uuid.workspace = true
+tokio.workspace = true
+tokio-tungstenite = {version = "0.27.0", features = ["native-tls"]}
+futures-util.workspace = true
+bytes.workspace = true
+hyper = "1.6.0"

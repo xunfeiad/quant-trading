@@ -4,3 +4,8 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+quant-schema.path = "../quant-schema"
+serde.workspace = true
+serde_json.workspace = true
+thiserror.workspace = true
+toml ="0.8.23"
