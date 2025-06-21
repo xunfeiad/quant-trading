@@ -1,6 +1,6 @@
 pub mod error;
 
-pub use error::Error;
+pub use error::{Error, Result};
 use quant_schema::Exchange;
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
@@ -65,38 +65,44 @@ impl Into<Credentials> for ExchangeConfig {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct OkexConfig {
     pub credentials: Credentials,
-    /// Base URL for Okex API
-    pub http_urls: Vec<String>,
-    pub ws_urls: Vec<String>,
-
     pub timeout: Option<u64>,
     pub retry_count: Option<u16>,
     pub retry_delay: Option<u64>,
-        pub testnet_http_urls: Option<Vec<String>>,
-    pub testnet_ws_urls: Option<Vec<String>>,
     pub ip_blacks: Vec<String>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct BinanceConfig {
     pub credentials: Credentials,
-    pub http_urls: Vec<String>,
-    pub ws_urls: Vec<String>,
     pub timeout: Option<u64>,
     pub retry_count: Option<u16>,
     pub retry_delay: Option<u64>,
-    pub testnet_http_urls: Option<Vec<String>>,
-    pub testnet_ws_urls: Option<Vec<String>>,
     pub ip_blacks: Vec<String>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct Credentials{
+pub struct Credentials {
     pub api_key: String,
     pub secret_key: String,
     pub passphrase: String,
     pub use_testnet: Option<bool>,
-    pub protocol: Option<String>
+    pub protocol: Option<Protocol>,
+    pub http_urls: Vec<String>,
+    pub testnet_http_urls: Option<Vec<String>>,
+    pub testnet_ws_urls: Option<Vec<String>>,
+    pub ws_urls: Vec<String>,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq)]
+pub enum Protocol {
+    #[serde(rename = "http")]
+    HTTP,
+    #[serde(rename = "ws")]
+    WS,
+    #[serde(rename = "https")]
+    HTTPS,
+    #[serde(rename = "wss")]
+    WSS,
 }
 
 impl Config {
@@ -128,13 +134,34 @@ impl Config {
     }
 
     /// Load configuration from a TOML file
-    pub fn load_from_file(file_path: &str) -> Result<(), Error> {
-        let config_str = fs::read_to_string(file_path)?;
+    pub fn load_from_file() -> Result<Config, Error> {
+        let config_str = fs::read_to_string("../../config.toml")?;
         let config: Config = toml::from_str(&config_str)?;
-        USER_CONFIG
-            .set(config)
-            .map_err(|_| Error::ConfigError("Failed to set user config".to_string()))?;
-        Ok(())
+        Ok(config)
+    }
+}
+
+pub fn get_config() -> &'static Config {
+    let config = USER_CONFIG.get_or_init(|| {
+        if let Ok(cfg) = Config::load_from_file() {
+            cfg
+        } else {
+            panic!("Failed to load configuration file");
+        }
+    });
+
+    config
+}
+
+pub fn get_credentials(exchange: &Exchange) -> Result<Credentials> {
+    let config = get_config();
+    let exchange = config
+        .get_exchange(exchange)
+        .ok_or(Error::ConfigError("Exchange not found"))?;
+
+    match exchange {
+        ExchangeConfig::Okex(okex_config) => Ok(okex_config.credentials),
+        ExchangeConfig::Binance(binance_config) => Ok(binance_config.credentials),
     }
 }
 
@@ -143,7 +170,7 @@ mod test {
     pub use super::*;
     #[test]
     pub fn test_load_file() -> Result<(), Error> {
-        Config::load_from_file("config.toml")?;
+        get_config();
         let config = USER_CONFIG.get().unwrap();
         assert!(config.has_exchange(&Exchange::Okex));
         assert!(config.has_exchange(&Exchange::Binance));

@@ -2,6 +2,8 @@ use std::io;
 
 use thiserror::Error;
 
+pub type Result<T, E = Error> = std::result::Result<T, E>;
+
 #[derive(Error, Debug)]
 pub enum Error {
     #[error("Configuration error: {0}")]
@@ -11,5 +13,5 @@ pub enum Error {
     #[error(transparent)]
     TomlError(#[from] toml::de::Error),
     #[error("Configuration error: {0}")]
-    ConfigError(String),
+    ConfigError(&'static str),
 }

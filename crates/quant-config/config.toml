@@ -8,8 +8,6 @@ use_testnet = false
 
 [exchanges.okex]
 type = "okex"
-http_urls = ["https://www.okx.com"]
-ws_urls = ["wss://ws.okx.com:8443/ws/v5/public","wss://ws.okx.com:8443/ws/v5/private","wss://ws.okx.com:8443/ws/v5/business"]
 timeout = 5000
 retry_count = 3
 retry_delay = 1000
@@ -23,16 +21,14 @@ secret_key = "75AACE8CF1C103249A9A4DDD6D4340AC"
 passphrase = "Xf19941118!,,,"
 use_testnet = true
 protocol = "https"
+http_urls = ["https://www.okx.com"]
+ws_urls = ["wss://ws.okx.com:8443/ws/v5/public","wss://ws.okx.com:8443/ws/v5/private","wss://ws.okx.com:8443/ws/v5/business"]
 
 [exchanges.binance]
 type = "binance"
-http_urls = ["https://www.okx.com"]
-ws_urls = ["wss://ws.okx.com:8443/ws/v5/public","wss://ws.okx.com:8443/ws/v5/private","wss://ws.okx.com:8443/ws/v5/business"]
 timeout = 5000
 retry_count = 3
 retry_delay = 1000
-testnet_http_urls = ["https://www.okx.com"]
-testnet_ws_urls = ["wss://ws.okx.com:8443/ws/v5/public","wss://ws.okx.com:8443/ws/v5/private","wss://ws.okx.com:8443/ws/v5/business"]
 ip_blacks = ["8.140.200.26"]
 
 [exchanges.binance.credentials]
@@ -41,3 +37,7 @@ secret_key = "75AACE8CF1C103249A9A4DDD6D4340AC"
 passphrase = "Xf19941118!,,,"
 use_testnet = true
 protocol = "https"
+testnet_http_urls = ["https://www.okx.com"]
+testnet_ws_urls = ["wss://ws.okx.com:8443/ws/v5/public","wss://ws.okx.com:8443/ws/v5/private","wss://ws.okx.com:8443/ws/v5/business"]
+http_urls = ["https://www.okx.com"]
+ws_urls = ["wss://ws.okx.com:8443/ws/v5/public","wss://ws.okx.com:8443/ws/v5/private","wss://ws.okx.com:8443/ws/v5/business"]

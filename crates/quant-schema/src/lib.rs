@@ -1,6 +1,7 @@
-use chrono::{DateTime, Utc};
+pub mod error;
+pub mod okex;
+
 use serde::{Deserialize, Serialize};
-use std::collections::HashMap;
 
 /// Trading symbol information
 /// This struct represents a trading symbol, which includes its name and other relevant details.
@@ -50,7 +51,7 @@ pub struct Ticker {
     pub exchange: String,
 
     /// Timestamp of the last update, UTC format
-    pub timestamp: DateTime<Utc>,
+    pub timestamp: f64,
 
     /// Last price for the symbol
     pub last_price: f64,
@@ -110,9 +111,4 @@ pub enum Exchange {
     Okex,
     #[serde(rename = "binance")]
     Binance,
-}
-
-pub enum OkexWsChannel {
-    Order,
-    Account,
 }

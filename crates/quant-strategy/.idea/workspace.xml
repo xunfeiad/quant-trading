@@ -10,12 +10,21 @@
     <list default="true" id="b6d1d973-00ef-4fd3-8293-b4928e022474" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../../Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../Cargo.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/../../Readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../quant-config/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/../quant-config/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../config.toml" beforeDir="false" afterPath="$PROJECT_DIR$/../../config.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../quant-config/config.toml" beforeDir="false" afterPath="$PROJECT_DIR$/../quant-config/config.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../quant-config/src/error.rs" beforeDir="false" afterPath="$PROJECT_DIR$/../quant-config/src/error.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../quant-config/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/../quant-config/src/lib.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../quant-exchange/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/../quant-exchange/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../quant-exchange/src/main.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../quant-exchange/src/constant.rs" beforeDir="false" afterPath="$PROJECT_DIR$/../quant-exchange/src/constant.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../quant-exchange/src/error.rs" beforeDir="false" afterPath="$PROJECT_DIR$/../quant-exchange/src/error.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../quant-exchange/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/../quant-exchange/src/lib.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../quant-exchange/src/okex.rs" beforeDir="false" afterPath="$PROJECT_DIR$/../quant-exchange/src/okex.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../quant-exchange/src/schema/okex/login.rs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../quant-exchange/src/schema/okex/mod.rs" beforeDir="false" afterPath="$PROJECT_DIR$/../quant-exchange/src/schema/okex/mod.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../quant-exchange/src/schema/okex/order.rs" beforeDir="false" afterPath="$PROJECT_DIR$/../quant-exchange/src/schema/okex/order.rs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../quant-schema/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/../quant-schema/src/lib.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../target/rust-analyzer/metadata/workspace/Cargo.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../target/rust-analyzer/metadata/workspace/Cargo.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +61,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.rust.reset.selective.auto.import&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/xunfei/quant-tading/crates/quant-strategy&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
