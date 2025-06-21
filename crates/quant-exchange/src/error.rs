@@ -1,3 +1,4 @@
+use quant_schema::okex::ws::event::WsResponseMessage;
 use thiserror::Error;
 
 pub type Result<T, E = Error> = std::result::Result<T, E>;
@@ -22,4 +23,21 @@ pub enum Error {
     WsError(#[from] tokio_tungstenite::tungstenite::Error),
     #[error(transparent)]
     WSHTTPError(#[from] tokio_tungstenite::tungstenite::http::Error),
+    #[error(transparent)]
+    ConfigCratesError(#[from] quant_config::Error),
+
+    #[error(transparent)]
+    QuantSchemaError(#[from] quant_schema::error::Error),
+    #[error(transparent)]
+    FlumeTrySendError(#[from] flume::SendError<WsResponseMessage>),
+    #[error(transparent)]
+    TokioError(#[from] tokio::task::JoinError),
+    #[error("Error: {0}")]
+    OtherError(String),
+}
+
+impl From<&'static str> for Error {
+    fn from(value: &'static str) -> Self {
+        Error::Other(value)
+    }
 }

@@ -1,8 +1,8 @@
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Serialize, Deserialize)]
-pub struct CreateOrder {
-    id: String,
+pub struct Order {
+    id: Option<u64>,
     op: String,
     args: Vec<Instrument>,
     #[serde(rename = "expTime")]
@@ -205,4 +205,20 @@ pub struct OrderData {
     pub in_time: String,
     #[serde(rename = "outTime")]
     pub out_time: String,
+}
+
+#[derive(Debug, Serialize, Deserialize)]
+pub enum InstrumentType {
+    // 币币
+    SPOT,
+    // 币币杠杆
+    MARGIN,
+    // 永续合约
+    SWAP,
+    // 交割合约
+    FUTURES,
+    // 期权
+    OPTION,
+    // 全部
+    ANY,
 }

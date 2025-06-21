@@ -21,3 +21,16 @@ tokio-tungstenite = {version = "0.27.0", features = ["native-tls"]}
 futures-util.workspace = true
 bytes.workspace = true
 hyper = "1.6.0"
+flume.workspace = true
+tracing.workspace = true
+parking_lot.workspace =true
+tracing-subscriber.workspace = true
+
+[[bin]]
+name = "okex"
+path = "src/bin/okex.rs"
+
+
+[dev-dependencies]
+flamegraph = "0.6"
+

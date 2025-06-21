@@ -42,11 +42,24 @@ impl OkexWsChannel {
 
 /// WebSocket 频道类型
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
-pub enum WsChannelType {
+pub enum WebSocketChannelType {
     /// 公共频道 - 不需要认证的市场数据
     Public,
     /// 私有频道 - 需要认证的账户数据
     Private,
     /// 业务频道 - 业务相关数据
     Business,
+    /// 错误频道 - 错误信息
+    Error,
+}
+
+impl WebSocketChannelType {
+    pub fn as_str(&self) -> &str {
+        match self {
+            WebSocketChannelType::Public => "public",
+            WebSocketChannelType::Private => "private",
+            WebSocketChannelType::Business => "business",
+            WebSocketChannelType::Error => "error",
+        }
+    }
 }
